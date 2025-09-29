@@ -8,7 +8,8 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -16,8 +17,9 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "plugins": ["react-refresh"],
+  "plugins": ["react-refresh", "prettier"],
   "rules": {
+    "prettier/prettier": "error",
     "react-refresh/only-export-components": [
       "warn",
       { "allowConstantExport": true }
@@ -32,7 +34,8 @@
       {
         "namedComponents": "function-declaration"
       }
-    ]
+    ],
+    "react/react-in-jsx-scope": "off"
   },
   "settings": {
     "react": {
