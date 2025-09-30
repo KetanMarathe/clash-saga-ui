@@ -1,0 +1,207 @@
+/* Main Menu Styles */
+.main-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  overflow: hidden;
+
+  .top-bar {
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    .user-info {
+      position: absolute !important;
+      left: 2rem !important;
+      top: 2rem !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 1rem !important;
+      padding: 0.5rem 1rem !important;
+      font-size: 1rem !important;
+      text-transform: none !important;
+      border-radius: 8px !important;
+      min-width: unset !important;
+      background-color: #fff !important;
+      transition: border-color 0.3s ease !important;
+
+      &:hover {
+        background-color: #fff !important;
+        border-color: #ff6b00 !important;
+      }
+
+      .user-avatar {
+        span {
+          cursor: default;
+        }
+      }
+    }
+
+    .settings-icon {
+      position: absolute !important;
+      right: 2rem !important;
+      top: 2rem !important;
+      min-width: unset !important;
+      width: 40px !important;
+      height: 40px !important;
+      padding: 8px !important;
+      border-radius: 50% !important;
+      background-color: #fff !important;
+      transition: transform 0.3s ease, border-color 0.3s ease !important;
+
+      &:hover {
+        transform: rotate(90deg);
+        background-color: #fff !important;
+        border-color: #ff6b00 !important;
+      }
+    }
+
+    .game-title {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin: 0;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+
+      .clash {
+        color: #ff6b00;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      .saga {
+        color: #ffd700;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  .game-options {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    padding-bottom: 4rem;
+
+    .host-game,
+    .join-game {
+      box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2) !important;
+      transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+      font-weight: bold !important;
+
+      &:hover {
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2) !important;
+      }
+    }
+
+    .host-game {
+      margin-right: 2rem !important;
+
+      &:hover {
+        background-color: #ff8533 !important;
+      }
+    }
+
+    .join-game {
+      margin-left: 2rem !important;
+
+      &:hover {
+        background-color: #ffe144 !important;
+      }
+    }
+  }
+}
+
+/* Host Game Styles */
+.host-game {
+  padding: 2rem;
+
+  .title {
+    color: #ff6b00;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .waiting-text {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .game-container {
+    max-width: 800px;
+    margin: 0 auto;
+
+    .players-list {
+      margin-bottom: 2rem;
+
+      .player-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem;
+        border-bottom: 1px solid #eee;
+
+        .remove-player {
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      .invite-button {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.5rem 1rem;
+        background: #fff;
+        border: 2px solid #000;
+        border-radius: 8px;
+        cursor: pointer;
+
+        .code {
+          padding: 0.2rem 0.5rem;
+          background: #f0f0f0;
+          border-radius: 4px;
+        }
+
+        .copy-button {
+          cursor: pointer;
+        }
+      }
+
+      .battle-button {
+        padding: 1rem 2rem;
+        background: #ff6b00;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+
+        &:hover {
+          background: #ff8533;
+        }
+      }
+    }
+  }
+}
