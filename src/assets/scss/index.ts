@@ -1,3 +1,0 @@
-import './mainMenu.scss';
-
-export {};
