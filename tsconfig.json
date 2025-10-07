@@ -10,7 +10,7 @@
     "strict": false,
     "forceConsistentCasingInFileNames": true,
     "allowImportingTsExtensions": true,
-    "moduleResolution": "Node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
