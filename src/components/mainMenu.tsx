@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import '../assets/scss';
 import { SettingsIcon } from '../assets/icons';
 import { Button } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
