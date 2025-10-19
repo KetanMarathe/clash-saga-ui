@@ -1,0 +1,98 @@
+@use '../../assets/scss/base' as *;
+
+.login-page {
+  @include flex-center;
+  @include flex-column;
+  min-height: 100vh;
+  width: 100vw;
+  padding: 20px;
+
+  .login-container {
+    @include flex-column;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 600px;
+
+    .logo {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      
+      .clash {
+        color: $primary-orange;
+      }
+      
+      .saga {
+        color: $primary-yellow;
+      }
+    }
+
+    .login-button-container {
+      width: 100%;
+      max-width: 320px;
+      
+      // Custom styling for Google OAuth button
+      div[role="button"] {
+        width: 100% !important;
+        border-radius: 8px !important;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+        transition: transform 0.2s ease !important;
+        
+        &:hover {
+          transform: translateY(-2px) !important;
+        }
+      }
+    }
+  }
+}
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #fff;
+  padding: 20px;
+
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 600px;
+
+    .logo {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      
+      .clash {
+        color: #FF4500;  // Orange color for 'Clash'
+      }
+      
+      .saga {
+        color: #FFD700;  // Yellow color for 'Saga'
+      }
+    }
+
+    .login-button-container {
+      width: 100%;
+      max-width: 320px;
+      
+      // Custom styling for Google OAuth button
+      div[role="button"] {
+        width: 100% !important;
+        border-radius: 8px !important;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+        transition: transform 0.2s ease !important;
+        
+        &:hover {
+          transform: translateY(-2px) !important;
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
-// src/App.tsx
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Suspense, useEffect, useState } from 'react';
+import type { ReactElement } from 'react';
 import { AuthProvider } from './context/AuthContext';
 import { authLoader } from './loaders/authLoader';
 import Home from './pages/Home';
@@ -30,7 +30,7 @@ function App() {
   );
 }
 
-const AuthGuard = ({ component }: { component: JSX.Element }) => {
+const AuthGuard = ({ component }: { component: ReactElement }) => {
   const [isValid, setIsValid] = useState<boolean | null>(null);
 
   useEffect(() => {
