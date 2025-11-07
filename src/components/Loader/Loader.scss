@@ -1,0 +1,50 @@
+@use '../../assets/scss/base' as *;
+
+.loader-container {
+  @include flex-center;
+  @include flex-column;
+  @include fullscreen-fixed;
+  background-color: $background-dark;
+  gap: 2rem;
+  padding: 20px;
+  z-index: 9999;
+
+  .logo {
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    animation: pulse 2s infinite;
+    
+    .clash {
+      color: $primary-orange;
+    }
+    
+    .saga {
+      color: $primary-yellow;
+    }
+  }
+
+  .progress-container {
+    width: 300px;
+    text-align: center;
+
+    .progress-label {
+      color: #ffffff;
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

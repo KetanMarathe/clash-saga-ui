@@ -1,15 +1,35 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense } from 'react';
 import type { ReactElement } from 'react';
 import { AuthProvider } from './context/AuthContext';
-import { authLoader } from './loaders/authLoader';
 import Home from './pages/Home';
 import Login from './pages/Login/Login';
 import Loader from './components/Loader/Loader';
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import { useAuthGuard } from './hooks/useAuthGuard';
 
 const queryClient = new QueryClient();
+
+const ProtectedRoute = ({ children }: { children: ReactElement }) => {
+  const { isLoading, isAuthenticated } = useAuthGuard(true);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  return isAuthenticated ? children : <Navigate to='/login' replace />;
+};
+
+const PublicRoute = ({ children }: { children: ReactElement }) => {
+  const { isLoading } = useAuthGuard(false);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  return children;
+};
 
 function App() {
   return (
@@ -19,8 +39,22 @@ function App() {
           <BrowserRouter>
             <Suspense fallback={<Loader />}>
               <Routes>
-                <Route path='/' element={<AuthGuard component={<Home />} />} />
-                <Route path='/login' element={<Login />} />
+                <Route
+                  path='/'
+                  element={
+                    <ProtectedRoute>
+                      <Home />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path='/login'
+                  element={
+                    <PublicRoute>
+                      <Login />
+                    </PublicRoute>
+                  }
+                />
               </Routes>
             </Suspense>
           </BrowserRouter>
@@ -29,16 +63,5 @@ function App() {
     </GoogleOAuthProvider>
   );
 }
-
-const AuthGuard = ({ component }: { component: ReactElement }) => {
-  const [isValid, setIsValid] = useState<boolean | null>(null);
-
-  useEffect(() => {
-    authLoader().then(res => setIsValid(res.valid));
-  }, []);
-
-  if (isValid === null) return <Loader />;
-  return isValid ? component : <Navigate to='/login' replace />;
-};
 
 export default App;

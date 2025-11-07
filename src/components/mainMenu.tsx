@@ -3,6 +3,7 @@ import '../assets/scss';
 import { SettingsIcon } from '../assets/icons';
 import { Button } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { getUsername } from '../utils/storage';
 
 interface MainMenuProps {
   onJoinGame: () => void;
@@ -45,7 +46,7 @@ const MainMenu: React.FC<MainMenuProps> = ({ onJoinGame, onHostGame }) => {
             <div className='user-avatar'>
               <span>○</span>
             </div>
-            <span>{userName}</span>
+            <span>{getUsername()}</span>
           </Button>
           <h1 className='game-title'>
             <span className='clash'>Clash</span>
